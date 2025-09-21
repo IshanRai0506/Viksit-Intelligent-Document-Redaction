@@ -1,0 +1,117 @@
+{
+  "filename": "Concept Note Template (Nascomm Theme 1)1d74f46 (2).pdf",
+  "processedAt": "2025-09-21T17:18:43.828Z",
+  "totalRedactions": 10,
+  "redactions": [
+    {
+      "type": "financial",
+      "category": "Account Number",
+      "confidence": 0.9367475872027324,
+      "coordinates": {
+        "x": 210.02546246049013,
+        "y": 228.34375037580728,
+        "width": 149.20011234650784,
+        "height": 23.31282480540444
+      }
+    },
+    {
+      "type": "phi",
+      "category": "Member ID",
+      "confidence": 0.8541357185517368,
+      "coordinates": {
+        "x": 184.83597555334052,
+        "y": 194.32539183877844,
+        "width": 163.4660567760985,
+        "height": 24.184824424560937
+      }
+    },
+    {
+      "type": "financial",
+      "category": "Account Number",
+      "confidence": 0.9377089542256335,
+      "coordinates": {
+        "x": 12.6864250206987,
+        "y": 196.45135405361498,
+        "width": 113.08489208834686,
+        "height": 18.814087083123333
+      }
+    },
+    {
+      "type": "pii",
+      "category": "SSN",
+      "confidence": 0.9546870723275424,
+      "coordinates": {
+        "x": 280.5641808810341,
+        "y": 103.70559850230559,
+        "width": 147.57015701917766,
+        "height": 21.395919245607622
+      }
+    },
+    {
+      "type": "phi",
+      "category": "DOB",
+      "confidence": 0.8884858753967643,
+      "coordinates": {
+        "x": 399.9402208873992,
+        "y": 466.36988766991766,
+        "width": 141.02598988556446,
+        "height": 15.589279573676343
+      }
+    },
+    {
+      "type": "pii",
+      "category": "Address",
+      "confidence": 0.9661714735857337,
+      "coordinates": {
+        "x": 167.62644856812977,
+        "y": 250.50236271265152,
+        "width": 186.48875013150487,
+        "height": 16.345767375808883
+      }
+    },
+    {
+      "type": "signature",
+      "category": "Signature",
+      "confidence": 0.9281369407163147,
+      "coordinates": {
+        "x": 391.34837797088863,
+        "y": 398.5497189215117,
+        "width": 122.57623745603807,
+        "height": 20.11500890928626
+      }
+    },
+    {
+      "type": "financial",
+      "category": "Account Number",
+      "confidence": 0.8727182897871105,
+      "coordinates": {
+        "x": 195.60000467814515,
+        "y": 461.29791264938683,
+        "width": 119.28873808965245,
+        "height": 18.181186662321483
+      }
+    },
+    {
+      "type": "pii",
+      "category": "SSN",
+      "confidence": 0.8611268179323942,
+      "coordinates": {
+        "x": 163.23646846230827,
+        "y": 146.85292333913412,
+        "width": 115.54774067001887,
+        "height": 24.856781441053585
+      }
+    },
+    {
+      "type": "pii",
+      "category": "Name",
+      "confidence": 0.8564611867821834,
+      "coordinates": {
+        "x": 67.87940786612378,
+        "y": 19.930134197772674,
+        "width": 146.97337565112105,
+        "height": 16.601617762141064
+      }
+    }
+  ]
+}
