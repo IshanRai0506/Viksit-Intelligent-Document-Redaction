@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  viksit:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./documents:/app/documents:ro
+      - ./output:/app/output
+      - ./config:/app/config:ro
+      - ./logs:/app/logs
+    environment:
+      - VIKSIT_CONFIG=/app/config/config.yaml
+      - DATABASE_URL=postgresql://viksit:password@postgres:5432/viksit
+      - REDIS_URL=redis://redis:6379/0
+      - LOG_LEVEL=INFO
+    depends_on:
+      - postgres
+      - redis
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: viksit
+      POSTGRES_USER: viksit
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - viksit
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  redis_data:

@@ -1,0 +1,184 @@
+# Viksit Configuration File
+# This file contains configuration settings for the Viksit document redaction system
+
+app:
+  name: "Viksit - Intelligent Document Redaction"
+  version: "1.0.0"
+  debug: false
+  secret_key: "your-secret-key-here"  # Change this in production
+
+# Document redaction settings
+redaction:
+  # Entity types to detect and redact
+  entity_types:
+    - person          # Names of people
+    - organization    # Company/organization names
+    - location        # Addresses and locations
+    - phone           # Phone numbers
+    - email           # Email addresses
+    - ssn             # Social Security Numbers
+    - credit_card     # Credit card numbers
+    - date            # Dates
+    - money           # Monetary amounts
+    - url             # URLs and websites
+    
+  # Custom regex patterns for organization-specific entities
+  custom_patterns:
+    employee_id: "EMP-\\d{6}"
+    patient_id: "P-\\d{8}"
+    case_number: "CASE-\\d{4}-\\d{6}"
+    account_number: "ACC-[A-Z]{2}\\d{10}"
+    
+  # Confidence threshold for entity detection (0.0 to 1.0)
+  confidence_threshold: 0.85
+  
+  # Redaction style
+  redaction_style:
+    method: "black_box"  # Options: black_box, blur, pixelate, text_replacement
+    replacement_text: "[REDACTED]"
+    box_color: "#000000"
+    
+  # Processing options
+  processing:
+    batch_size: 10
+    max_file_size: 100  # MB
+    supported_formats:
+      - pdf
+      - docx
+      - doc
+      - txt
+      - png
+      - jpg
+      - jpeg
+
+# Model configuration
+models:
+  # Language model for NER
+  language_model: "en_core_web_sm"
+  
+  # Custom model paths
+  custom_models:
+    financial: "./models/financial_ner_model"
+    medical: "./models/medical_ner_model"
+    
+  # Model performance settings
+  device: "auto"  # Options: auto, cpu, cuda
+  max_length: 1000000  # Maximum text length for processing
+
+# Database configuration
+database:
+  url: "sqlite:///viksit.db"  # Use PostgreSQL in production
+  echo: false
+  pool_size: 5
+  max_overflow: 10
+
+# Redis configuration (for caching and job queue)
+redis:
+  url: "redis://localhost:6379/0"
+  password: null
+  
+# File storage
+storage:
+  upload_folder: "./uploads"
+  output_folder: "./output"
+  temp_folder: "./temp"
+  max_file_size: 100  # MB
+  allowed_extensions:
+    - pdf
+    - docx
+    - doc
+    - txt
+    - png
+    - jpg
+    - jpeg
+    
+# Security settings
+security:
+  allowed_origins:
+    - "http://localhost:3000"
+    - "http://localhost:5000"
+  max_content_length: 104857600  # 100MB in bytes
+  session_timeout: 3600  # seconds
+  
+  # Rate limiting
+  rate_limiting:
+    enabled: true
+    requests_per_minute: 60
+    burst_size: 10
+
+# Logging configuration
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "./logs/viksit.log"
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+  
+  # Audit logging for redaction activities
+  audit:
+    enabled: true
+    file: "./logs/audit.log"
+    include_content: false  # Set to true to log redacted content (security risk)
+
+# API configuration
+api:
+  host: "0.0.0.0"
+  port: 5000
+  workers: 4
+  timeout: 300  # seconds
+  
+  # API versioning
+  version: "v1"
+  prefix: "/api/v1"
+  
+  # Documentation
+  docs_enabled: true
+  redoc_url: "/redoc"
+  openapi_url: "/openapi.json"
+
+# Web interface settings
+web:
+  enabled: true
+  template_folder: "./templates"
+  static_folder: "./static"
+  
+  # Upload settings
+  max_upload_size: 100  # MB
+  allowed_file_types:
+    - "application/pdf"
+    - "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    - "application/msword"
+    - "text/plain"
+    - "image/png"
+    - "image/jpeg"
+
+# Monitoring and metrics
+monitoring:
+  enabled: false
+  metrics_endpoint: "/metrics"
+  health_endpoint: "/health"
+  
+  # External monitoring
+  sentry:
+    enabled: false
+    dsn: ""
+    
+  # Performance monitoring
+  profiling:
+    enabled: false
+    sample_rate: 0.1
+
+# Feature flags
+features:
+  batch_processing: true
+  preview_mode: true
+  custom_entities: true
+  api_access: true
+  web_interface: true
+  audit_logging: true
+  
+# Development settings (only used when debug=true)
+development:
+  auto_reload: true
+  show_sql: false
+  fake_processing: false  # Skip actual redaction for testing
