@@ -1,95 +1,114 @@
-# Viksit-Intelligent-Document-Redaction
+Viksit: AI-Powered Document Redaction Tool
+<div align="center">
+<img src="https://www.google.com/search?q=https://placehold.co/600x300/667eea/ffffff%3Ftext%3DViksit%2BDemo%26font%3Dinter" alt="Viksit Application Screenshot">
+</div>
 
-1. Project Overview for Hackathon Judges
-Team: Viksit
-Objective: To create a "Trust by Design" solution that automatically redacts sensitive information (PII, PHI) from documents, making them safe to share while ensuring privacy compliance.
+<p align="center">
+A "Trust by Design" solution that automatically redacts sensitive information from documents, making them safe to share while ensuring privacy compliance.
+</p>
 
-Organizations in healthcare, finance, and government struggle with manual, slow, and error-prone redaction of sensitive data, despite legal mandates like GDPR and HIPAA. Viksit provides an intelligent, automated, and highly accurate solution to protect PII/PHI across various document formats, ensuring compliance and enabling safe data use.
+📖 About The Project
+Organizations in healthcare, finance, and government struggle with manual, slow, and error-prone redaction of sensitive data, despite legal mandates like GDPR and HIPAA. Viksit provides an intelligent, automated, and highly accurate solution to protect Personally Identifiable Information (PII) and Protected Health Information (PHI) across various document formats, ensuring compliance and enabling safe data use.
 
-Viksit is a self-contained web application that leverages a hybrid AI model. It combines Optical Character Recognition (OCR), Named Entity Recognition (NER) for text analysis, and object detection for visual elements like signatures. This allows for a higher degree of accuracy than traditional text-only redaction tools.
+Viksit is a self-contained web application that leverages a hybrid AI model. It combines:
 
-This document provides instructions for setting up, running, and evaluating the application.
+Optical Character Recognition (OCR) to digitize text.
 
-2. Quick Start: Local Execution (For Technical Review)
-This section provides the fastest path to running the application locally. Please ensure the system prerequisites (Tesseract and Poppler) are installed first. (See Section 4 for details).
+Named Entity Recognition (NER) to identify sensitive textual data.
 
-Clone the Repository (if applicable) & Navigate to Folder:
-Open a terminal in the project directory containing app.py.
+Object Detection to find visual elements like signatures and barcodes.
 
-Set Up and Activate Virtual Environment:
+This hybrid approach allows for a higher degree of accuracy than traditional text-only redaction tools, building a foundation of trust through verifiable privacy protection.
 
-# Create the environment
-python -m venv venv
-# Activate it (macOS/Linux)
-source venv/bin/activate
-# Activate it (Windows)
-.\\venv\\Scripts\\activate
+✨ Built With
+Backend: Python, Flask, Gunicorn
 
+AI/ML: spaCy, Pytesseract (Tesseract-OCR), pdf2image, Pillow
 
-Install Dependencies:
+Frontend: HTML, CSS, JavaScript (served via Flask)
 
-pip install -r requirements.txt
+Containerization: Docker
 
+🚀 Getting Started
+Follow these instructions to get a local copy up and running for development and testing.
 
-Download AI Model:
+Prerequisites
+You must have the following third-party software installed on your system.
 
-python -m spacy download en_core_web_sm
+Python 3.8+
 
+Download from python.org.
 
-Run the Application:
+Tesseract-OCR Engine
 
-python app.py
-
-
-Access the Tool:
-Open your web browser and navigate to: https://www.google.com/search?q=http://127.0.0.1:5000
-
-3. How to Test the Application
-Once the application is running, please follow these steps to verify its functionality:
-
-Upload a Document: Use the drag-and-drop interface or the "Choose File" button to upload a document (PDF, PNG, or JPG). Sample documents with PII should be included in the project repository.
-
-Process: Click the "Process Document" button.
-
-Review Results:
-
-Side-by-Side View: Compare the original document on the left with the redacted version on the right. Verify that sensitive information (names, dates, SSNs, etc.) has been blacked out.
-
-Redaction Summary: Check the statistics at the top to see a count of the different types of information found.
-
-Audit Log: Review the "Redaction Log" to see a detailed list of every item that was redacted.
-
-Download Artifacts: Test the download buttons to save the redacted document and the JSON audit log.
-
-4. Detailed Setup Instructions & Prerequisites
-This section contains detailed installation instructions for required third-party software.
-
-a) Python (3.8+ is recommended)
-The application is built with Python. Download from python.org if not already installed.
-
-b) Tesseract-OCR Engine
-Required for extracting text from images.
-
-macOS (Homebrew): brew install tesseract
+macOS: brew install tesseract
 
 Ubuntu/Debian: sudo apt update && sudo apt install -y tesseract-ocr
 
-Windows: Download the installer from the Tesseract at UB Mannheim page and add the installation folder to your system's PATH.
+Windows: Download from Tesseract at UB Mannheim and add the installation directory to your system's PATH.
 
-c) Poppler
-Required for converting PDF files into images.
+Poppler
 
-macOS (Homebrew): brew install poppler
+macOS: brew install poppler
 
 Ubuntu/Debian: sudo apt update && sudo apt install -y poppler-utils
 
-Windows: Download the binaries from this page, extract them, and add the bin subfolder to your system's PATH.
+Windows: Download from Poppler for Windows, extract, and add the bin folder to your system's PATH.
 
-5. Deployment & Scalability
-The application has been architected for easy deployment and scalability using Docker. This approach ensures that the environment is consistent and all system dependencies are handled automatically.
+Installation
+Clone the repository:
 
-a) Dockerfile
-A Dockerfile is included in the project. This file contains all the instructions to build a container image with the Python environment, Tesseract, Poppler, and all necessary libraries. This makes deployment to any modern cloud provider (like Render, Heroku, or AWS) straightforward.
+git clone [https://github.com/your-username/viksit.git](https://github.com/your-username/viksit.git)
+cd viksit
 
-b) Production Server
-The Dockerfile is configured to use Gunicorn, a production-grade web server, to run the Flask application, ensuring stability and the ability to handle multiple concurrent users. The requirements.txt file should include gunicorn for deployment.
+Create and activate a virtual environment:
+
+python -m venv venv
+# On macOS/Linux:
+source venv/bin/activate
+# On Windows:
+.\\venv\\Scripts\\activate
+
+Install Python dependencies:
+
+pip install -r requirements.txt
+
+Download the spaCy AI model:
+
+python -m spacy download en_core_web_sm
+
+Running the Application
+Start the Flask server:
+
+python app.py
+
+Open the application:
+Navigate to http://127.0.0.1:5000 in your web browser.
+
+💻 Usage
+Once the application is running, you can test its core functionality:
+
+Upload a Document: Drag and drop a file (PDF, PNG, JPG) onto the upload area or use the "Choose File" button.
+
+Process: Click the "Process Document" button to start the AI analysis.
+
+Review Results:
+
+Side-by-Side View: Compare the original document with the redacted version.
+
+Redaction Summary: See a statistical breakdown of the sensitive data found.
+
+Audit Log: View a detailed list of every redacted item for compliance purposes.
+
+Download: Save the secure, redacted document and the JSON audit log to your local machine.
+
+🐳 Deployment
+This application is designed for easy deployment using Docker. A Dockerfile is included, which handles all system dependencies (Tesseract, Poppler) and sets up a production-ready environment with Gunicorn.
+
+You can deploy this application to any cloud service that supports Docker containers, such as Render, Heroku, or AWS.
+
+📄 License
+Distributed under the MIT License. See LICENSE for more information.
+
+👥 Contact
+Team Viksit
