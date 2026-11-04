@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="320" viewBox="0 0 1280 320" role="img" aria-labelledby="title desc">
+  <title id="title">VIKSIT — INTELLIGENT DOCUMENT REDACTION</title><desc id="desc">OCR  /  NER  /  TRUST BY DESIGN</desc>
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1225"/><stop offset=".58" stop-color="#141c34"/><stop offset="1" stop-color="#25143b"/></linearGradient><linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#76a8ff"/><stop offset="1" stop-color="#9c8cff"/></linearGradient><pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" stroke="#8295bd" stroke-opacity=".09" fill="none"/></pattern></defs>
+  <rect width="1280" height="320" rx="20" fill="url(#bg)"/><rect width="1280" height="320" rx="20" fill="url(#grid)"/>
+  <circle cx="115" cy="300" r="170" fill="#76a8ff" opacity=".08"/><circle cx="1200" cy="0" r="185" fill="#a26aff" opacity=".08"/>
+  <path d="M0 270Q280 220 520 270T980 258T1280 270" fill="none" stroke="url(#accent)" stroke-opacity=".3" stroke-width="2"/>
+  <rect x="56" y="48" width="8" height="206" rx="4" fill="url(#accent)"/>
+  <text x="94" y="89" fill="#93a7ce" font-family="monospace" font-size="15" letter-spacing="4">PROJECT / OPEN SOURCE WORK</text>
+  <text x="94" y="157" fill="#f4f7ff" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="800" letter-spacing="1">VIKSIT</text>
+  <text x="96" y="199" fill="#76a8ff" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" letter-spacing="1">INTELLIGENT DOCUMENT REDACTION</text>
+  <text x="96" y="244" fill="#b3c0db" font-family="monospace" font-size="13" letter-spacing="1.4">OCR  /  NER  /  TRUST BY DESIGN</text>
+  <g transform="translate(875 54)"><rect x="30" y="8" width="210" height="228" rx="12" fill="#16223d" stroke="#76a8ff" stroke-opacity=".85"/><path d="M66 59H204M66 88H204M66 117H204M66 146H170M66 175H188" stroke="#a9bbd7" stroke-width="7" stroke-linecap="round" opacity=".46"/><rect x="58" y="49" width="150" height="17" rx="4" fill="#76a8ff" opacity=".88"/><rect x="58" y="108" width="132" height="17" rx="4" fill="#76a8ff" opacity=".62"/><rect x="58" y="166" width="160" height="17" rx="4" fill="#76a8ff" opacity=".42"/><path d="M20 42L-2 64M20 42L42 64" stroke="#76a8ff" stroke-width="3" stroke-linecap="round"/></g>
+  <text x="1172" y="292" fill="#8294b7" font-family="monospace" font-size="11" text-anchor="end">ISHANRAI0506  /  GITHUB</text>
+</svg>
